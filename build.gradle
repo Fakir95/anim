@@ -1,13 +1,17 @@
 plugins {
     id 'java'
     id 'application'
-    
+    id 'pmd'
+    id 'findbugs'
+    id 'checkstyle'    
 }
 
 repositories {
     jcenter() 
 }
 mainClassName = 'animpack.Scroll1'
+
+
 //FindBugs
 tasks.withType(FindBugs) {
     reports {
