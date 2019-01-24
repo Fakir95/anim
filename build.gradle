@@ -1,37 +1,11 @@
 plugins {
     id 'java'
     id 'application'
-    id 'pmd'
-    id 'findbugs'
-     
+    
 }
 
 repositories {
     jcenter() 
 }
 mainClassName = 'animpack.Scroll1'
-
-
-//FindBugs
-tasks.withType(FindBugs) {
-    reports {
-        xml.enabled false
-        html.enabled true
-    }
-}
-findbugs{
-    ignoreFailures = true
-}
-
-//PMD
-tasks.withType(Pmd) {
-    reports {
-        xml.enabled false
-        html.enabled true
-    }
-}
-pmd {
-    ruleSetConfig = rootProject.resources.text.fromFile("config/pmd/ruleset.xml")
-    ignoreFailures = true
-}
 
