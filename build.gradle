@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'application'
+    
+}
+
+repositories {
+    jcenter() 
+}
+mainClassName = 'animpack.HelloWorld'
+
+
+
+
+
+//FindBugs
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+findbugs{
+    ignoreFailures = true
+}
+
+//Checkstyle
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+checkstyle {
+    configFile file("config/checkstyle/checkstyle.xml")
+    toolVersion = '8.16'
+}
+
+//PMD
+tasks.withType(Pmd) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+pmd {
+    ruleSetConfig = rootProject.resources.text.fromFile("config/pmd/ruleset.xml")
+    ignoreFailures = true
+}
