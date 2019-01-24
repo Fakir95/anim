@@ -3,7 +3,7 @@ plugins {
     id 'application'
     id 'pmd'
     id 'findbugs'
-    id 'checkstyle'    
+     
 }
 
 repositories {
@@ -21,18 +21,6 @@ tasks.withType(FindBugs) {
 }
 findbugs{
     ignoreFailures = true
-}
-
-//Checkstyle
-tasks.withType(Checkstyle) {
-    reports {
-        xml.enabled false
-        html.enabled true
-    }
-}
-checkstyle {
-    configFile file("config/checkstyle/checkstyle.xml")
-    toolVersion = '8.16'
 }
 
 //PMD
